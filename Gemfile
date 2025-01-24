@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.6'
 
 gem 'bootsnap',        '1.16.0', require: false
+gem 'bootstrap-sass',  '3.4.1'
 gem 'importmap-rails', '1.1.5'
 gem 'jbuilder',        '2.11.5'
 gem 'puma',            '5.6.8'
@@ -33,7 +34,7 @@ group :test do
   gem 'selenium-webdriver',       '4.8.3'
   gem 'webdrivers',               '5.2.0'
   # RSpec
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end
