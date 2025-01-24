@@ -8,6 +8,9 @@ RSpec.describe 'static_pagesコントローラのテスト', type: :request do
     it 'レスポンスが200番を返すこと' do
       expect(response.status).to eq 200
     end
+    it 'タイトルが正しく表示されること' do
+      expect(response.body).to include('<title>Home | Ruby on Rails Tutorial Sample App</title>')
+    end
   end
 
   describe 'helpページ' do
@@ -16,6 +19,9 @@ RSpec.describe 'static_pagesコントローラのテスト', type: :request do
     end
     it 'レスポンスが200番を返すこと' do
       expect(response.status).to eq 200
+    end
+    it 'タイトルが正しく表示されること' do
+      expect(response.body).to include('<title>Help | Ruby on Rails Tutorial Sample App</title>')
     end
   end
 
@@ -26,8 +32,8 @@ RSpec.describe 'static_pagesコントローラのテスト', type: :request do
     it 'レスポンスが200番を返すこと' do
       expect(response.status).to eq 200
     end
-    it 'タイトルが表示されること' do
-      expect(response.body).to include('About')
+    it 'タイトルが正しく表示されること' do
+      expect(response.body).to include('<title>About | Ruby on Rails Tutorial Sample App</title>')
     end
   end
 end
