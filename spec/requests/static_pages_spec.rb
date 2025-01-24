@@ -9,7 +9,7 @@ RSpec.describe 'static_pagesコントローラのテスト', type: :request do
       expect(response.status).to eq 200
     end
     it 'タイトルが正しく表示されること' do
-      expect(response.body).to include('<title>Home | Ruby on Rails Tutorial Sample App</title>')
+      expect(response.body).to include('<title>Ruby on Rails Tutorial Sample App</title>')
     end
   end
 
