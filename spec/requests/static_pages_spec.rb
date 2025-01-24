@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'static_pagesコントローラのテスト', type: :request do
-  describe 'homeページ' do
+  describe 'homeページ（root）' do
     before do
-      get static_pages_home_path
+      get root_path
     end
     it 'レスポンスが200番を返すこと' do
       expect(response.status).to eq 200
