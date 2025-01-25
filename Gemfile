@@ -28,11 +28,10 @@ group :development do
 end
 
 group :test do
-  gem 'capybara',                 '3.38.0'
+  gem 'capybara'
   gem 'guard',                    '2.18.0'
   gem 'rails-controller-testing', '1.0.5'
   gem 'selenium-webdriver',       '4.8.3'
-  gem 'webdrivers',               '5.2.0'
   # RSpec
   gem 'factory_bot_rails'
   gem 'faker'
