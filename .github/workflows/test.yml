@@ -34,9 +34,8 @@ jobs:
 
       - name: Database create and migrate
         run: |
-          cp config/database.yml.ci config/database.yml
-          bundle exec rails db:create RAILS_ENV=test
-          bundle exec rails db:migrate RAILS_ENV=test
+          rm -f db/test.sqlite3
+          bundle exec rails db:schema:load RAILS_ENV=test
 
       - name: Run rspec
         run: bundle exec rspec
