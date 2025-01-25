@@ -273,6 +273,11 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.30.0)
       parser (>= 3.2.1.0)
+    rubocop-rails (2.23.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -365,6 +370,8 @@ DEPENDENCIES
   reline (= 0.5.10)
   repl_type_completor (= 0.1.2)
   rspec-rails
+  rubocop
+  rubocop-rails
   sassc-rails (= 2.1.2)
   selenium-webdriver (= 4.8.3)
   solargraph (= 0.50.0)

@@ -18,6 +18,8 @@ gem 'turbo-rails',     '1.4.0'
 group :development, :test do
   gem 'debug', '1.7.1', platforms: %i[mri mingw x64_mingw]
   gem 'reline', '0.5.10'
+  gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 group :development do
