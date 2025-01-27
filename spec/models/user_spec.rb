@@ -38,6 +38,17 @@ RSpec.describe 'Userモデルのテスト', type: :model do
           expect(user.valid?).to eq expected
         end
       end
+      it '一意であること' do
+        dup_user = user.dup
+        expect(dup_user.valid?).to eq false
+        dup_user.email = 'dup_user@example.com'
+        expect(dup_user.valid?).to eq true
+      end
+      it '保存時に小文字に変換されること' do
+        user.email = user.email.upcase
+        user.save
+        expect(user.reload.email).to eq user.email.downcase
+      end
     end
   end
 end
