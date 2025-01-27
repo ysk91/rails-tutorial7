@@ -50,5 +50,17 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(user.reload.email).to eq user.email.downcase
       end
     end
+    context 'passwordカラム' do
+      it '空欄でないこと' do
+        user.password = user.password_confirmation = ''
+        expect(user.valid?).to eq false
+      end
+      it '6文字以上であること' do
+        user.password = user.password_confirmation = 'a' * 6
+        expect(user.valid?).to eq true
+        user.password = user.password_confirmation = 'a' * 5
+        expect(user.valid?).to eq false
+      end
+    end
   end
 end
