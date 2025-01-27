@@ -147,5 +147,6 @@ NumericLiterals:
 AllCops:
   SuggestExtensions: false
   Exclude:
+    - 'vendor/**/*' # Gem::MissingSpecError対策
     - 'db/schema.rb'
     - 'db/migrate/*'
