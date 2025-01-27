@@ -22,9 +22,9 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(user.valid?).to eq false
       end
       it '255文字以下であること' do
-        user.email = 'a' * 243 + '@example.com'
+        user.email = "#{'a' * 243}@example.com"
         expect(user.valid?).to eq true
-        user.email = 'a' * 244 + '@example.com'
+        user.email = "#{'a' * 244}@example.com"
         expect(user.valid?).to eq false
       end
       it 'フォーマットが正しいこと' do
