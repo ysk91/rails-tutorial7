@@ -140,5 +140,9 @@ Style/SymbolArray:
 Layout/LineLength:
   Max: 198
 
+NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
 AllCops:
   SuggestExtensions: false
