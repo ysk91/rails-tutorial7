@@ -27,6 +27,17 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         user.email = 'a' * 244 + '@example.com'
         expect(user.valid?).to eq false
       end
+      it 'フォーマットが正しいこと' do
+        test_cases = [
+          ['sample@example.com', true],
+          ['sample@example', false],
+          ['sample＠example.com', false]
+        ]
+        test_cases.each do |email, expected|
+          user.email = email
+          expect(user.valid?).to eq expected
+        end
+      end
     end
   end
 end
