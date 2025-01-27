@@ -146,3 +146,6 @@ NumericLiterals:
 
 AllCops:
   SuggestExtensions: false
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
