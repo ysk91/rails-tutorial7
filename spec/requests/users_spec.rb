@@ -16,7 +16,7 @@ RSpec.describe 'usersコントローラのテスト', type: :request do
         ['password', 'user[password_confirmation]']
       ]
       forms.each do |type, name|
-        expect(response.body).to include "input type=\"#{type}\" name=\"#{name}\""
+        expect(response.body).to include "input class=\"form-control\" type=\"#{type}\" name=\"#{name}\""
       end
       expect(response.body).to include 'input type="submit"'
     end
