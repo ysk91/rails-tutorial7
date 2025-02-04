@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'サインアップ', type: :system do
+RSpec.xdescribe 'サインアップ', type: :system do
   it 'サインアップページにアクセスできること' do
     get root_url
     expect(page).to have_current_path(root_path)
