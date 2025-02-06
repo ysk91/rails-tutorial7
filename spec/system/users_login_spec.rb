@@ -23,8 +23,12 @@ RSpec.xdescribe 'Sessions', type: :system do
       fill_in 'Password', with: user.password
       click_button 'Log in'
       expect(page).to have_current_path(user_path(user))
-      expect(page).to have_content(user.name)
+
       expect(current_user_id).to eq(user.id)
+      expect(page).to have_content(user.name)
+      expect(page).not_to have_content('Log in')
+      expect(page).to have_content('Users')
+      expect(page).to have_content('Accont')
     end
 
     it 'ログイン済みユーザーがログインページにアクセスするとユーザー詳細ページにリダイレクトされること' do
