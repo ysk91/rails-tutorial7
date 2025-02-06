@@ -32,7 +32,6 @@ RSpec.xdescribe 'Sessions', type: :system do
     end
 
     it 'ログイン済みユーザーがログインページにアクセスするとユーザー詳細ページにリダイレクトされること' do
-
     end
   end
 end

@@ -13,7 +13,7 @@ RSpec.describe 'ログインページ', type: :request do
     it 'ログインページにフォームが表示されること' do
       forms = [
         ['email', 'session[email]'],
-        ['password', 'session[password]'],
+        ['password', 'session[password]']
       ]
       forms.each do |type, name|
         expect(response.body).to include "input class=\"form-control\" type=\"#{type}\" name=\"#{name}\""
