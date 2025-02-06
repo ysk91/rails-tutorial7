@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Welcome to the Sample App!'
       redirect_to @user
     else
-      flash[:danger] = 'Please fix the errors below.'
+      flash.now[:danger] = 'Please fix the errors below.'
       render 'new', status: :unprocessable_entity
     end
   end
