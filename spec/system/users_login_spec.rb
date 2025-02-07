@@ -15,8 +15,16 @@ RSpec.xdescribe 'Sessions', type: :system do
       expect(page).to have_current_path(login_path)
       expect(page).to have_content('Invalid email/password combination')
 
+      # ページ更新するとフラッシュメッセージが消えること
       visit login_path
       expect(page).not_to have_content('Invalid email/password combination')
+
+      # パスワードが違うパターン
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'invalid_password'
+      click_button 'Log in'
+
+      expect(page).to have_current_path(login_path)
 
       # 成功パターン
       fill_in 'Email', with: user.email
