@@ -40,6 +40,23 @@ RSpec.xdescribe 'Sessions', type: :system do
     end
 
     it 'ログイン済みユーザーがログインページにアクセスするとユーザー詳細ページにリダイレクトされること' do
+      log_in_as(user)
+      visit login_path
+
+      expect(page).to have_current_path(user_path(user))
+    end
+
+    it 'remember_meチェックボックスをチェックした場合、永続的セッションが作成されること' do
+      visit login_path
+
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      check 'Remember me on this computer'
+      click_button 'Log in'
+
+      expect(current_user_id).to eq(user.id)
+      expect(cookies[:user_id]).to eq(user.id.to_s)
+      expect(cookies[:remember_token]).to eq(user.remember_token)
     end
   end
 

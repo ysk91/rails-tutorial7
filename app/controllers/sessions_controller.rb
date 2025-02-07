@@ -1,11 +1,15 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    redirect_to user_path(current_user) if logged_in?
+  end
 
   def create
+    redirect_to user_path(current_user) if logged_in?
+
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       reset_session
-      remember(user)
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       log_in(user)
       redirect_to user
     else

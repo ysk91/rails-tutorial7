@@ -18,6 +18,7 @@ RSpec.describe 'ログインページ', type: :request do
       forms.each do |type, name|
         expect(response.body).to include "input class=\"form-control\" type=\"#{type}\" name=\"#{name}\""
       end
+      expect(response.body).to include 'input type="checkbox" value="1" name="session[remember_me]"'
       expect(response.body).to include 'input type="submit" name="commit" value="Log in"'
     end
   end
