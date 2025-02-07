@@ -16,8 +16,7 @@ class User < ApplicationRecord
     # userインスタンスに一時的にトークンを作成する（インスタンス変数に保存される）
     self.remember_token = User.new_token
     # userインスタンスのremember_digest属性にハッシュ化したトークンを保存する（データベースに保存される）
-    remember_digest = User.digest(remember_token)
-    update!(remember_digest:)
+    update_attribute(:remember_digest, User.digest(remember_token))
   end
 
   def authenticated?(remember_token)
@@ -27,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def forget
-    update!(remember_digest: nil)
+    update_attribute(:remember_digest, nil)
   end
 
   class << self

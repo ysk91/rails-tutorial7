@@ -5,7 +5,7 @@ module SessionsHelper
 
   def remember(user)
     user.remember
-    cocokies.permanent.encrypted[:user_id] = user.id
+    cookies.permanent.encrypted[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
 
