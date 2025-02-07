@@ -42,4 +42,23 @@ RSpec.xdescribe 'Sessions', type: :system do
     it 'ログイン済みユーザーがログインページにアクセスするとユーザー詳細ページにリダイレクトされること' do
     end
   end
+
+  describe 'ログアウト' do
+    it 'ログイン済みユーザーがログアウトできること' do
+      log_in_as(user)
+
+      click_link 'Account'
+      click_link 'Log out'
+
+      expect(status_code).to eq(303)
+      expect(page).to have_current_path(root_path)
+      expect(is_logged_in?).to be_falsey
+      expect(page).to have_content('Log in')
+      expect(page).not_to have_content('Users')
+      expect(page).not_to have_content('Accont')
+    end
+
+    it '未ログインユーザーがログアウトページにアクセスするとルートページにリダイレクトされること' do
+    end
+  end
 end
