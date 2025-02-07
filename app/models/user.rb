@@ -31,8 +31,6 @@ class User < ApplicationRecord
   end
 
   class << self
-    private
-
     def new_token
       SecureRandom.urlsafe_base64
     end

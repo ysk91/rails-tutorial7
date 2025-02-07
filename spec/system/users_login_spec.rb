@@ -59,6 +59,10 @@ RSpec.xdescribe 'Sessions', type: :system do
     end
 
     it '未ログインユーザーがログアウトページにアクセスするとルートページにリダイレクトされること' do
+      vitit logout_path
+
+      expect(status_code).to eq(303)
+      expect(page).to have_current_path(root_path)
     end
   end
 end
