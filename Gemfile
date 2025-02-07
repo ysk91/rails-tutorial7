@@ -8,6 +8,7 @@ gem 'bootsnap', '1.16.0', require: false
 gem 'bootstrap-sass',  '3.4.1'
 gem 'importmap-rails', '1.1.5'
 gem 'jbuilder',        '2.11.5'
+gem 'pry-rails'
 gem 'puma',            '5.6.8'
 gem 'rails',           '7.0.4.3'
 gem 'sassc-rails',     '2.1.2'
