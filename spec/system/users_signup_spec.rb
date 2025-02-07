@@ -48,5 +48,7 @@ RSpec.xdescribe 'サインアップ', type: :system do
     expect(page).to have_content('Example User')
 
     expect(User.count).to eq user_count + 1
+
+    expect(is_logged_in?).to be_truthy
   end
 end
