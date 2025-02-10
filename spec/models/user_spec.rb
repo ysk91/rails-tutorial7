@@ -63,4 +63,16 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
+
+  describe 'authenticated?メソッド' do
+    let(:user) { create(:user) }
+
+    it 'remember_digestがnilの場合はfalseを返すこと' do
+      expect(user.authenticated?('')).to eq false
+    end
+    it 'remember_digestがnilでない場合はtrueを返すこと' do
+      user.remember
+      expect(user.authenticated?(user.remember_token)).to eq true
+    end
+  end
 end
