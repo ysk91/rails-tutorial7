@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.xdescribe 'サイトレイアウト', type: :system do
+RSpec.describe 'サイトレイアウト', type: :system do
   it 'レイアウトリンクが正しいことを確認する' do
     get root_url
 
