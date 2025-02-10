@@ -17,6 +17,13 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     # userインスタンスのremember_digest属性にハッシュ化したトークンを保存する（データベースに保存される）
     update_attribute(:remember_digest, User.digest(remember_token))
+    remember_digest
+  end
+
+  # セッションハイジャック防止のためにセッショントークンを返す
+  # この記憶ダイジェストを再利用しているのは単に利便性のため
+  def session_token
+    remember_digest || remember
   end
 
   def authenticated?(remember_token)
